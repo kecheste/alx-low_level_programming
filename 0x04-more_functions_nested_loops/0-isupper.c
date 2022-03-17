@@ -1,7 +1,13 @@
 #include "main.h"
 #include <stdio.h>
 
-int main(){
+/**
+ * main - check the code.
+ *
+ * Return: Always 0.
+ */
+
+int main(void){
     char c;
 
     c = 'A';
