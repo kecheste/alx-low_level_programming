@@ -1,8 +1,11 @@
 #include "main.h"
 
 /**
- * print_numbers - input
+ * print_numbers - entry point
  *
+ * Description: Prints the numbers with _putchar
+ *
+ * Return: void
  */
 
 void print_numbers(void)
@@ -11,8 +14,8 @@ void print_numbers(void)
 
 	while (i < 58)
 	{
-		putchar(i);
+		_putchar(i);
 		i++;
 	}
-	putchar('\n');
+	_putchar('\n');
 }
