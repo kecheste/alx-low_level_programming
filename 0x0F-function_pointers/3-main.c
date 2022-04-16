@@ -34,4 +34,4 @@ int main(int argc, char *argv[])
 	result = calculator(atoi(argv[1]), atoi(argv[3]));
 	printf("%d\n", result);
 	return (0);
-}
+}}
