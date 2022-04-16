@@ -1,37 +1,41 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "3-calc.h"
+
 /**
- * main - main function
+ * main - the starting function
+ * @argc: the number of passed arguments including the program's name
+ * @argv: an array whose elements are the passed arguments
  *
- * @argc: numero de argumentos
- * @argv: parametros
- *
- * Return: result of the operation selected
+ * Return: Always 0.
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int result;
-	int (*calculator)(int, int);
+	int x, y;
+	char o;
+	int (*op_func)(int, int);
 
 	if (argc != 4)
 	{
 		printf("Error\n");
-		exit(98);
+		return (98);
 	}
-	if (argv[2] == NULL || argv[2][1] != '\0')
-	{
-		printf("Error\n");
-		exit(99);
-	}
-	calculator = get_op_func(argv[2]);
 
-	if (calculator == NULL)
+	x = atoi(argv[1]);
+	y = atoi(argv[3]);
+	o = *argv[2];
+
+	op_func = get_op_func(argv[2]);
+
+	if (!op_func)
 	{
 		printf("Error\n");
-		exit(99);
+		return (99);
 	}
-	result = calculator(atoi(argv[1]), atoi(argv[3]));
-	printf("%d\n", result);
+
+	if ((o == '/' || o == '%') && y == 0)
+	{
+		printf("Error\n");
+		return (100);
+	}
+	printf("%d\n", op_func(x, y));
 	return (0);
-}}
+}
